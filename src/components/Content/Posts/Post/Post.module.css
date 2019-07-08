@@ -1,0 +1,33 @@
+.item{
+	margin-top: 10px;
+	border-radius: 20px;
+	padding-top: 20px;
+	padding-left: 20px;
+	background-color: rgba(30,30,255,0.6);
+}
+.item img{
+	width: 50px;
+	border-radius: 10px;
+}
+.item button{
+
+}
+.likes{
+	display: flex;
+	flex-direction: row;
+}
+.likes button{
+	margin: 2px;
+	display: flex;
+	flex-direction: row;
+}
+.likes button img{
+	width: 15px;
+}
+.dislike{
+	background-color: red;
+}
+.like{
+	background-color: green;
+}
+

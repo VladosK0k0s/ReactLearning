@@ -1,0 +1,24 @@
+.leftbar .bar{
+  background-color: grey;
+  padding: 20px;
+  transition: ease-out .3s;
+  text-decoration: none;
+  color: black;
+}
+.leftbar .bar:active{
+  color:red;
+}
+.leftbar .bar:hover{
+	background-color: aqua;
+  transform: scale(1.1);
+}
+.left .bar:visited{
+	color: black;
+}
+.leftbar{
+  grid-area: lb;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+

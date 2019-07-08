@@ -1,0 +1,9 @@
+.main{
+	background: linear-gradient(to bottom, lightgreen, darkgreen);
+}
+.text{
+	display: block;
+	text-align: center;
+	font: 30px sans-serif;
+	font-style: italic;
+}
