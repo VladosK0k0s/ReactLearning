@@ -18,6 +18,25 @@
 	border-radius: 30px;
 }
 
+.content{
+  grid-area: c;
+  background-size: contain;
+}
+.content::after {
+  content: "";
+  background-image: url('https://mirpozitiva.ru/uploads/posts/2017-04/medium/1492620921_06.jpg');
+  opacity: 0.5;
+  width: 50px;
+  height: 100px;
+  z-index: 1;
+  -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;   
+}
+
+
 
 
 
