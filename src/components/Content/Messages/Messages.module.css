@@ -4,3 +4,10 @@
 	font: 30px sans-serif;
 	font-style: italic;
 }
+.messages{
+	display: flex;
+    flex-direction: row;
+}
+.content{
+	margin: auto;
+}

@@ -7,13 +7,13 @@ import Messages from './components/Content/Messages/Messages.jsx'
 import Friends from './components/Content/Friends/Friends.jsx'
 import History from './components/Content/History/History.jsx'
 import Settings from './components/Content/Settings/Settings.jsx'
-import {Route, HashRouter} from 'react-router-dom'
+import {Route, HashRouter, BrowserRouter} from 'react-router-dom'
 
 
 const App = () =>{
   return (  
     <div className='App-wrapper'>
-        <HashRouter> 
+        <BrowserRouter> 
 	        <Header/>
 	        <MainBar/>  
 		    <div className='App-wrapper-MainContent content'>
@@ -24,7 +24,7 @@ const App = () =>{
 	           	<Route path = '/settings' component = {Settings}/>
 	           	<Route path = '/history' component = {History}/>	
 			</div>
-      	</HashRouter> 
+      	</BrowserRouter> 
     </div>
   );
 }
