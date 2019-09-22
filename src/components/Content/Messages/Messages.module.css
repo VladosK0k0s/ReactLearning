@@ -11,3 +11,6 @@
 .content{
 	margin: auto;
 }
+.dialoglink::visited{
+	color: green;
+}

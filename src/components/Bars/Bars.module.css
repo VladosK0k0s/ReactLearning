@@ -6,7 +6,7 @@
   color: black;
 }
 .leftbar .bar:active{
-  color:red;
+  color:green;
 }
 .leftbar .bar:hover{
 	background-color: aqua;
