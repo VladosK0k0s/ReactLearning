@@ -10,22 +10,34 @@ import Settings from './components/Content/Settings/Settings.jsx'
 import {Route, HashRouter, BrowserRouter} from 'react-router-dom'
 
 
-const App = () =>{
-  return (  
-    <div className='App-wrapper'>
-        <BrowserRouter> 
-	        <Header/>
-	        <MainBar/>  
-		    <div className='App-wrapper-MainContent content'>
-				<Route exact path = '/' component = {Posts}/>
-	            <Route path = '/messages' component = {Messages}/>
-	           	<Route path = '/myposts' component = {Posts}/>	
-	           	<Route path = '/friends' component = {Friends}/>
-	           	<Route path = '/settings' component = {Settings}/>
-	           	<Route path = '/history' component = {History}/>	
-			</div>
-      	</BrowserRouter> 
-    </div>
-  );
+
+
+class App extends React.Component{
+	constructor(props) {
+	  super(props);
+	  this.state = {};
+	}
+	render(){
+  		return (  
+		    <div className='App-wrapper'>
+		        <BrowserRouter> 
+			        <Header/>
+			        <MainBar/>  
+				    <div className='App-wrapper-MainContent content'>
+						<Route exact path = '/' render = {() => <Posts postData={this.props.AppState.postsData}/>}/>
+			            <Route path = '/messages' render = {() => <Messages messagesData={{
+			            	messageData: this.props.AppState.messageData,
+			            	dialogsData: this.props.AppState.dialogsData				   
+			            }
+			            }/>}/>
+			           	<Route path = '/myposts' render = {() => <Posts postData={this.props.AppState.postsData}/>}/>	
+			           	<Route path = '/friends' render = {() => <Friends/>}/>
+			           	<Route path = '/settings' render = {() => <Settings/>}/>
+			           	<Route path = '/history' render = {() => <History/>}/>	
+					</div>
+		      	</BrowserRouter> 
+		    </div>
+  		);
+	}
 }
 export default App;
