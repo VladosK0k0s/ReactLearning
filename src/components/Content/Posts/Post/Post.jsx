@@ -22,7 +22,7 @@ class Post extends React.Component {
 	Show (arg) {
 		return !arg ? '' : arg;
 	}
-   render(){
+     render(){
 		return<div className={classes.item} >
 				<img src={`${this.state.avatar}`} alt="userimg"/>
 				{this.state.message}

@@ -24,14 +24,10 @@ class App extends React.Component{
 			        <Header/>
 			        <MainBar/>  
 				    <div className='App-wrapper-MainContent content'>
-						<Route exact path = '/' render = {() => <Posts postData={this.props.AppState.postsData}/>}/>
-			            <Route path = '/messages' render = {() => <Messages messagesData={{
-			            	messageData: this.props.AppState.messageData,
-			            	dialogsData: this.props.AppState.dialogsData				   
-			            }
-			            }/>}/>
-			           	<Route path = '/myposts' render = {() => <Posts postData={this.props.AppState.postsData}/>}/>	
-			           	<Route path = '/friends' render = {() => <Friends/>}/>
+						<Route exact path = '/' render = {() => <Posts PostsPage={this.props.AppState.PostsPage} addPost={this.props.addPost}/>}/>
+			            <Route path = '/messages' render = {() => <Messages MessagesPage={this.props.AppState.MessagesPage}/>}/>
+			           	<Route path = '/myposts' render = {() => <Posts PostsPage={this.props.AppState.PostsPage} addPost={this.props.addPost}/>}/>	
+			           	<Route path = '/friends' render = {() => <Friends FriendsPage = {this.props.AppState.FriendsPage}/>}/>
 			           	<Route path = '/settings' render = {() => <Settings/>}/>
 			           	<Route path = '/history' render = {() => <History/>}/>	
 					</div>

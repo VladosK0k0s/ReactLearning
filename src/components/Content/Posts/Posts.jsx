@@ -9,7 +9,8 @@ class Posts extends React.Component{
 	constructor(props) {
 	    super(props);
 	    this.state = {	value: '',
-	    				array: this.props.postData
+	    				array: this.props.PostsPage.postsData,
+	    				addPost: this.props.PostsPage.addPost
 	    			};
 	    this.handleChange = this.handleChange.bind(this);
 	    this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,11 +18,19 @@ class Posts extends React.Component{
   	}
 
   	handleChange(event) {
+  		let new1  = event.target.value;
+  		if((new1[new1.length-1] == ',')||(new1[new1.length] == ',')){
+  			this.setState({value: new1.slice(0,-1)});
+  		}
+  		else
     	this.setState({value: event.target.value});
  	}
 
     handleSubmit(event) {
-    	this.addToArray();
+    	if(this.state.value !== ''){
+	    	this.state.addPost();
+	    	this.addToArray();
+    	}
    		event.preventDefault();
     }
     addToArray(){

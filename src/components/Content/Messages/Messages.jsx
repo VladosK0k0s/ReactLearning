@@ -4,25 +4,11 @@ import Dialog from './Dialog/Dialog.jsx'
 import MessageContent from './MessageContent/MessageContent.jsx'
 
 
-let dialogsData = [
-	{name: "Anton", id: 1},
-	{name: 'Vlad', id: 2},
-	{name: 'Vania', id: 3},
-	{name: 'Petya', id: 4}
-]
-let messageData = [
-	{text: "Hello world!", id: 1},
-	{text: "Hello, VSause!", id: 2},
-	{text: "jfjjfjf", id: 3},
-	{text: "Jemes Koh", id: 4}
-]
-
-
 class Messages extends React.Component{
 	constructor(props) {
 	  super(props);
 	  this.state = {
-	  	Data: this.props.messagesData
+	  	Data: this.props.MessagesPage
 	  };
 	}
 	render(){
