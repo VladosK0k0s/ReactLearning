@@ -7,17 +7,22 @@ class Post extends React.Component {
 	constructor(props) {
 	  super(props);
 	  this.state = {
-	  	likecnt: 0,
-		dislikecnt: 0,
-		message: props.message,
-		avatar: props.ImgURL
+	  	likecnt: this.props.CNT[0],
+		dislikecnt: this.props.CNT[1],
+		message: this.props.message,
+		avatar: this.props.ImgURL,
+		HandleChange: this.props.HandleChange
 	  };
 	}
-	ChangeLike() {
-		this.setState({likecnt: this.state.likecnt + 1})		
+	ChangeLike() {	
+		this.props.CNT[0]++;
+		this.setState({likecnt:this.props.CNT[0]});
+		this.state.HandleChange();
 	}
 	ChangeDisLike() {
-		this.setState({dislikecnt: this.state.dislikecnt + 1})		
+		this.props.CNT[1]++;
+		this.setState({dislikecnt:this.props.CNT[1]});
+		this.state.HandleChange();		
 	}
 	Show (arg) {
 		return !arg ? '' : arg;

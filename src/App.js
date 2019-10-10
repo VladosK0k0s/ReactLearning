@@ -7,7 +7,7 @@ import Messages from './components/Content/Messages/Messages.jsx'
 import Friends from './components/Content/Friends/Friends.jsx'
 import History from './components/Content/History/History.jsx'
 import Settings from './components/Content/Settings/Settings.jsx'
-import {Route, HashRouter, BrowserRouter} from 'react-router-dom'
+import {Route,  BrowserRouter} from 'react-router-dom'
 
 
 
@@ -24,9 +24,9 @@ class App extends React.Component{
 			        <Header/>
 			        <MainBar/>  
 				    <div className='App-wrapper-MainContent content'>
-						<Route exact path = '/' render = {() => <Posts PostsPage={this.props.AppState.PostsPage} addPost={this.props.addPost}/>}/>
+						<Route exact path = '/' render = {() => <Posts PostsPage={this.props.AppState.PostsPage} HandleChange={this.props.HandleChange}/>}/>
 			            <Route path = '/messages' render = {() => <Messages MessagesPage={this.props.AppState.MessagesPage}/>}/>
-			           	<Route path = '/myposts' render = {() => <Posts PostsPage={this.props.AppState.PostsPage} addPost={this.props.addPost}/>}/>	
+			           	<Route path = '/myposts' render = {() => <Posts PostsPage={this.props.AppState.PostsPage} HandleChange={this.props.HandleChange}/>}/>	
 			           	<Route path = '/friends' render = {() => <Friends FriendsPage = {this.props.AppState.FriendsPage}/>}/>
 			           	<Route path = '/settings' render = {() => <Settings/>}/>
 			           	<Route path = '/history' render = {() => <History/>}/>	

@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 
-
-export let rerenderEntireTree = (state, addPost) =>{
-	ReactDOM.render(<App AppState={state} addPost={addPost}/>,
+export let rerenderEntireTree = (state, HandleChange) =>{
+	console.log(state.PostsPage.postsData);
+	ReactDOM.render(<App AppState={state} HandleChange={HandleChange}/>,
 	document.getElementById('root'));
 }
 
