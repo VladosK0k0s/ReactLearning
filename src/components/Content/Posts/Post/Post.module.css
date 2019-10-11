@@ -5,7 +5,12 @@
 	padding-left: 20px;
 	background-color: rgba(30,30,255,0.6);
 }
-.item img{
+/*.item img{
+	width: 50px;
+	border-radius: 10px;
+}*/
+.userimg{
+	height: 50px;
 	width: 50px;
 	border-radius: 10px;
 }

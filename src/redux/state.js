@@ -26,10 +26,25 @@ let FriendsData = [
 ];
 
 
-
-export let HandleChange = (msg) =>{
-	rerenderEntireTree(state, HandleChange);
+let AddPost = (data) =>{
+	postsData.unshift({
+		key: postsData.length + 1,
+		id: postsData.length + 1,
+		likesCNT: [0,0],
+		message: data.message,
+		ImgURL: data.ImgURL
+	});
+	rerenderEntireTree(state, PostChangeHandler);
 }
+let UpdateInput = (text) =>{
+	state.PostsPage.inputvalue[0] = text;
+	rerenderEntireTree(state, PostChangeHandler);
+}
+
+export let PostChangeHandler = [
+	AddPost,
+	UpdateInput
+]
 
 let MessagesPage = {
 	dialogsData: dialogsData,
@@ -37,13 +52,11 @@ let MessagesPage = {
 }
 let PostsPage = {
 	postsData: postsData,
-	HandleChange: HandleChange
+	inputvalue: [''],
 }
 let FriendsPage = {
 	FriendsData: FriendsData
 }
-
-
 
 let state = {	
 	FriendsPage: FriendsPage,

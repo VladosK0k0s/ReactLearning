@@ -29,7 +29,7 @@ class Post extends React.Component {
 	}
      render(){
 		return<div className={classes.item} >
-				<img src={`${this.state.avatar}`} alt="userimg"/>
+				<img className={classes.userimg} src={`${this.state.avatar}`} alt="userimg"/>
 				{this.state.message}
 				<div className={classes.likes} >
 					<div>

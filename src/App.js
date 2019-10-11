@@ -24,9 +24,9 @@ class App extends React.Component{
 			        <Header/>
 			        <MainBar/>  
 				    <div className='App-wrapper-MainContent content'>
-						<Route exact path = '/' render = {() => <Posts PostsPage={this.props.AppState.PostsPage} HandleChange={this.props.HandleChange}/>}/>
+						<Route exact path = '/' render = {() => <Posts PostsPage={this.props.AppState.PostsPage} PostChangeHandler={this.props.PostChangeHandler}/>}/>
 			            <Route path = '/messages' render = {() => <Messages MessagesPage={this.props.AppState.MessagesPage}/>}/>
-			           	<Route path = '/myposts' render = {() => <Posts PostsPage={this.props.AppState.PostsPage} HandleChange={this.props.HandleChange}/>}/>	
+			           	<Route path = '/myposts' render = {() => <Posts PostsPage={this.props.AppState.PostsPage} PostChangeHandler={this.props.PostChangeHandler}/>}/>	
 			           	<Route path = '/friends' render = {() => <Friends FriendsPage = {this.props.AppState.FriendsPage}/>}/>
 			           	<Route path = '/settings' render = {() => <Settings/>}/>
 			           	<Route path = '/history' render = {() => <History/>}/>	
