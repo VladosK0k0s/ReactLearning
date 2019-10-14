@@ -1,5 +1,8 @@
 .main{
-	background: linear-gradient(to bottom, lightgreen, darkgreen);
+	background-image: url(friendsImg.jpg);
+	-webkit-background-size: contain;
+	background-size: contain;
+	/*background: linear-gradient(to bottom, lightgreen, darkgreen);*/
 }
 .text{
 	display: block;

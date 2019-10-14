@@ -13,10 +13,6 @@ import {Route,  BrowserRouter} from 'react-router-dom'
 
 
 class App extends React.Component{
-	constructor(props) {
-	  super(props);
-	  this.state = {};
-	}
 	render(){
   		return (  
 		    <div className='App-wrapper'>
@@ -24,10 +20,10 @@ class App extends React.Component{
 			        <Header/>
 			        <MainBar/>  
 				    <div className='App-wrapper-MainContent content'>
-						<Route exact path = '/' render = {() => <Posts PostsPage={this.props.AppState.PostsPage} PostChangeHandler={this.props.PostChangeHandler}/>}/>
-			            <Route path = '/messages' render = {() => <Messages MessagesPage={this.props.AppState.MessagesPage}/>}/>
-			           	<Route path = '/myposts' render = {() => <Posts PostsPage={this.props.AppState.PostsPage} PostChangeHandler={this.props.PostChangeHandler}/>}/>	
-			           	<Route path = '/friends' render = {() => <Friends FriendsPage = {this.props.AppState.FriendsPage}/>}/>
+						<Route exact path = '/' render = {() => <Posts storage = {this.props.storage}/>}/>
+			            <Route path = '/messages' render = {() => <Messages storage = {this.props.storage}/>}/>
+			           	<Route path = '/myposts' render = {() => <Posts storage = {this.props.storage}/>}/>	
+			           	<Route path = '/friends' render = {() => <Friends storage = {this.props.storage}/>}/>
 			           	<Route path = '/settings' render = {() => <Settings/>}/>
 			           	<Route path = '/history' render = {() => <History/>}/>	
 					</div>

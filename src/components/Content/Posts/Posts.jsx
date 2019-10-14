@@ -1,32 +1,27 @@
 import React from 'react';
 import classes from './Posts.module.css';
 import Post from "./Post/Post.jsx"
+import {UpdatePostInputActionCreator, AddPostActionCreator} from './../../../redux/state.js'
 
 
 class Posts extends React.Component{
 	constructor(props) {
 	    super(props);
-	    this.state = {	value: this.props.PostsPage.inputvalue,
-	    				array: this.props.PostsPage.postsData,
-	    				AddPost: this.props.PostChangeHandler[0],	
-	    				UpdateInput: this.props.PostChangeHandler[1]
-	    			};
 	    this.handleInputChange = this.handleInputChange.bind(this);
 	    this.handleSubmit = this.handleSubmit.bind(this);
   	}
-
   	handleInputChange(event) {
   		let new1  = event.target.value;
   		if(!(new1[new1.length-1] === ',')&&!(new1[new1.length] === ',')){
-  			this.state.UpdateInput(event.target.value);
+  			this.props.storage.dispatch(UpdatePostInputActionCreator(new1));
   		}
  	}
     handleSubmit(event) {
-    	if(this.state.value !== '11'){
-        	this.state.AddPost({
-        	 	message: this.state.value, 
-        	 	ImgURL: `https://picsum.photos/200/30${Math.floor(Math.random()*10)}/`});
+    	if(this.props.storage.getState().PostsPage.inputvalue[0] !== ''){
+        	this.props.storage.dispatch(AddPostActionCreator());
+        	this.props.storage.dispatch(UpdatePostInputActionCreator(''));
     	}
+
    		event.preventDefault();
     }
     render(){
@@ -36,15 +31,22 @@ class Posts extends React.Component{
 				<div>
 					<form className = {classes.text} onSubmit={this.handleSubmit}>
         			  <label>
-         				  <input type="text" value={this.state.value} onChange={this.handleInputChange} />
+         				  <input type="text" value={this.props.storage.getState().PostsPage.inputvalue} onChange={this.handleInputChange} />
        				  </label>
        				  <input type="submit" value="Add Post" />
       				</form>	
 				</div>
 				<div>
 					{
-						this.state.array.map((el) => {
-							return <Post HandleChange = {this.state.HandleChange} key ={el.id} CNT = {el.likesCNT} message={el.message} ImgURL={el.ImgURL} />;
+						this.props.storage.getState().PostsPage.postsData.map((el) => {
+							return (
+								<Post 
+									dispatch = {this.props.storage.dispatch.bind(this.props.storage)} 
+									key ={el.id} id ={el.id} 
+									likesCNT = {el.likesCNT} 
+									message={el.message} 
+									ImgURL={el.ImgURL} 
+								/>);
 						})
 					}
 				</div>
@@ -53,10 +55,5 @@ class Posts extends React.Component{
 	    );
 	}
 }
-// function deleteCookie(name) {
-//   setCookie(name, "", {
-//     'max-age': -1
-//   })
-// } 
 
 export default Posts;

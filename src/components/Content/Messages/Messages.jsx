@@ -5,12 +5,6 @@ import MessageContent from './MessageContent/MessageContent.jsx'
 
 
 class Messages extends React.Component{
-	constructor(props) {
-	  super(props);
-	  this.state = {
-	  	Data: this.props.MessagesPage
-	  };
-	}
 	render(){
 		return(
 			<div>
@@ -18,14 +12,14 @@ class Messages extends React.Component{
 					<div className = {classes.messages}>
 					<div>
 					{
-						this.state.Data.dialogsData.map((el) => {
-							return <Dialog className = {classes.dialoglink} name = {el.name} key = {el.id}></Dialog>
+						this.props.storage.getState().MessagesPage.dialogsData.map((el) => {
+							return <Dialog className = {classes.dialoglink} name = {el.name} key = {el.id} id = {el.id}></Dialog>
 						})
 					}
 					</div>
 					<div className = {classes.content}>	
 					{
-						this.state.Data.messageData.map((el) => {
+						this.props.storage.getState().MessagesPage.messageData.map((el) => {
 							return <MessageContent key = {el.id} text = {el.text}></MessageContent>	
 						})
 					}
