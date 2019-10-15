@@ -8,16 +8,27 @@ let storage = {
 	_state: {
 		MessagesPage: {
 			dialogsData : [
-				{name: "Anton", id: 1},
-				{name: 'Vlad', id: 2},
-				{name: 'Vania', id: 3},
-				{name: 'Petya', id: 4}
-			],
-			messageData : [
-				{text: "Hello world!", id: 1},
-				{text: "Hello, VSause!", id: 2},
-				{text: "jfjjfjf", id: 3},
-				{text: "Jemes Koh", id: 4}
+				{	name: "Anton", 
+					id: 1, 
+					messages: [
+						{text: "Hello world!111111111111111111111", id: 1},
+						{text: "Hello, VSause!", id: 2},
+						{text: "jfjjfjf", id: 3},
+						{text: "Jemes Koh", id: 4}
+					]
+				},
+				{	name: 'Vlad', 
+					id: 2,
+					messages: []
+				},
+				{	name: 'Vania', 
+					id: 3,
+					messages: []
+				},
+				{	name: 'Petya', 
+					id: 4,
+					messages: []
+				}
 			]
 		},
 		PostsPage: {

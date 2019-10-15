@@ -7,7 +7,7 @@ import Messages from './components/Content/Messages/Messages.jsx'
 import Friends from './components/Content/Friends/Friends.jsx'
 import History from './components/Content/History/History.jsx'
 import Settings from './components/Content/Settings/Settings.jsx'
-import {Route,  BrowserRouter} from 'react-router-dom'
+import {Route,  BrowserRouter, Switch} from 'react-router-dom'
 
 
 
@@ -16,7 +16,8 @@ class App extends React.Component{
 	render(){
   		return (  
 		    <div className='App-wrapper'>
-		        <BrowserRouter> 
+		        <BrowserRouter>
+		        
 			        <Header/>
 			        <MainBar/>  
 				    <div className='App-wrapper-MainContent content'>
@@ -25,8 +26,9 @@ class App extends React.Component{
 			           	<Route path = '/myposts' render = {() => <Posts storage = {this.props.storage}/>}/>	
 			           	<Route path = '/friends' render = {() => <Friends storage = {this.props.storage}/>}/>
 			           	<Route path = '/settings' render = {() => <Settings/>}/>
-			           	<Route path = '/history' render = {() => <History/>}/>	
+			           	<Route path = '/history' render = {() => <History/>}/>
 					</div>
+					
 		      	</BrowserRouter> 
 		    </div>
   		);
