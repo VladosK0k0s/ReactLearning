@@ -2,6 +2,8 @@ const UPDATE_DISLIKE = 'UPDATE_DISLIKE';
 const UPDATE_LIKE = 'UPDATE_LIKE';
 const UPDATE_POST_INPUT = 'UPDATE_POST_INPUT';
 const ADD_POST = 'ADD_POST';
+const UPDATE_MESSAGE_INPUT = 'UPDATE_MESSAGE_INPUT';
+const SEND_MESSAGE = 'SEND_MESSAGE';
 
 
 let storage = {
@@ -29,7 +31,8 @@ let storage = {
 					id: 4,
 					messages: []
 				}
-			]
+			],
+			inputvalue: ['']
 		},
 		PostsPage: {
 			postsData: [
@@ -92,9 +95,25 @@ let storage = {
 			else console.log('Error, post doesn`t exist');
 			this.rerenderEntireTree();
 		}
+		else if (action.type === UPDATE_MESSAGE_INPUT) {
+			this._state.MessagesPage.inputvalue[0] = action.text;
+			this.rerenderEntireTree();
+		}
+		else if (action.type === SEND_MESSAGE) {
+			if(action.id != 0){
+				this._state.MessagesPage.dialogsData[action.id-1].messages.push({
+					text: this._state.MessagesPage.inputvalue[0],
+					id: this._state.MessagesPage.dialogsData[action.id-1].messages.length + 1
+				})
+			}
+			this.rerenderEntireTree();
+		}
 	}
 }
 
+
+export const SendMessageActionCreator = (id) =>({type: SEND_MESSAGE, id: id});
+export const UpdateMessageInputActionCreator = (text) =>({type: UPDATE_MESSAGE_INPUT, text: text});
 export const UpdatePostInputActionCreator = (text) =>({type: UPDATE_POST_INPUT, text: text});
 export const AddPostActionCreator = () =>({type: ADD_POST});
 export const UpdateLikeActionCreator = (id) => ({type: UPDATE_LIKE, id: id});

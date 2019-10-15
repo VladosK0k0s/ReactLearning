@@ -7,7 +7,7 @@ import Messages from './components/Content/Messages/Messages.jsx'
 import Friends from './components/Content/Friends/Friends.jsx'
 import History from './components/Content/History/History.jsx'
 import Settings from './components/Content/Settings/Settings.jsx'
-import {Route,  BrowserRouter, Switch} from 'react-router-dom'
+import {Route,  BrowserRouter} from 'react-router-dom'
 
 
 
