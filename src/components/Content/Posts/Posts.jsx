@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Posts.module.css';
 import Post from "./Post/Post.jsx"
-import {UpdatePostInputActionCreator, AddPostActionCreator} from './../../../redux/state.js'
+import {PostUpdateInputActionCreator, PostAddActionCreator} from './../../../redux/PostsPage_reducer.js'
 
 
 class Posts extends React.Component{
@@ -13,13 +13,13 @@ class Posts extends React.Component{
   	handleInputChange(event) {
   		let new1  = event.target.value;
   		if(!(new1[new1.length-1] === ',')&&!(new1[new1.length] === ',')){
-  			this.props.storage.dispatch(UpdatePostInputActionCreator(new1));
+  			this.props.storage.dispatch(PostUpdateInputActionCreator(new1));
   		}
  	}
     handleSubmit(event) {
     	if(this.props.storage.getState().PostsPage.inputvalue[0] !== ''){
-        	this.props.storage.dispatch(AddPostActionCreator());
-        	this.props.storage.dispatch(UpdatePostInputActionCreator(''));
+        	this.props.storage.dispatch(PostAddActionCreator());
+        	this.props.storage.dispatch(PostUpdateInputActionCreator(''));
     	}
 
    		event.preventDefault();

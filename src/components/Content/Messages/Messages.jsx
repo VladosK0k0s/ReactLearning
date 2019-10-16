@@ -3,7 +3,7 @@ import classes from './Messages.module.css'
 import Dialog from './Dialog/Dialog.jsx'
 import {Route} from 'react-router-dom'
 import MessageContent from './MessageContent/MessageContent.jsx'
-import {SendMessageActionCreator, UpdateMessageInputActionCreator} from './../../../redux/state.js'
+import {MessageSendActionCreator, MessageUpdateInputActionCreator} from './../../../redux/MessagesPage_reducer.js'
 
 
 
@@ -12,17 +12,18 @@ class Messages extends React.Component{
 	  super(props);
 	  this.handleSubmit = this.handleSubmit.bind(this);
 	  this.handleInputChange = this.handleInputChange.bind(this);
+	  ((x) => console.log(x))(2); 
 	}
 	handleInputChange(event){
 		let text = event.target.value;
-		this.props.storage.dispatch(UpdateMessageInputActionCreator(text));
+		this.props.storage.dispatch(MessageUpdateInputActionCreator(text));
 	}
 	handleSubmit(event){
 		let reg = /\/messages\/([0-9]+)/;
 		let id = reg.exec(window.location.pathname) ? reg.exec(window.location.pathname)[1] : 0;
 		if(this.props.storage.getState().MessagesPage.inputvalue[0] !== ''){
-        	this.props.storage.dispatch(SendMessageActionCreator(id));
-        	this.props.storage.dispatch(UpdateMessageInputActionCreator(''));
+        	this.props.storage.dispatch(MessageSendActionCreator(id));
+        	this.props.storage.dispatch(MessageUpdateInputActionCreator(''));
     	}
 		event.preventDefault();
 	}

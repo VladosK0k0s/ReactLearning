@@ -1,10 +1,6 @@
-const UPDATE_DISLIKE = 'UPDATE_DISLIKE';
-const UPDATE_LIKE = 'UPDATE_LIKE';
-const UPDATE_POST_INPUT = 'UPDATE_POST_INPUT';
-const ADD_POST = 'ADD_POST';
-const UPDATE_MESSAGE_INPUT = 'UPDATE_MESSAGE_INPUT';
-const SEND_MESSAGE = 'SEND_MESSAGE';
-
+import MessagesPage_reducer from './MessagesPage_reducer.js';
+import PostsPage_reducer from './PostsPage_reducer.js';
+import FriendsPage_reducer from './FriendsPage_reducer.js';
 
 let storage = {
 	_state: {
@@ -62,62 +58,14 @@ let storage = {
 		this.rerenderEntireTree = observer;
 	},
 	dispatch(action){   //  {type: 'ADD-POST'}
-		if(action.type === 'ADD_POST'){
-			let postsData = this._state.PostsPage.postsData;
-			postsData.unshift({
-				key: postsData.length + 1,
-				id: postsData.length + 1,
-				likesCNT: [0,0],
-				message: this._state.PostsPage.inputvalue[0],
-				ImgURL: `https://picsum.photos/200/30${Math.floor(Math.random()*10)}/`
-			});
-			this.rerenderEntireTree();
-		}
-		else if(action.type === 'UPDATE_POST_INPUT'){
-			this._state.PostsPage.inputvalue[0] = action.text;
-			this.rerenderEntireTree();
-		}
-		else if(action.type === 'UPDATE_LIKE'){
-			let postsData = this._state.PostsPage.postsData;
-			let k = postsData.length - action.id; // post position in array 
-			if(postsData[k]){
-				postsData[k].likesCNT[0]++;
-			}
-			else console.log('Error, post doesn`t exist');
-			this.rerenderEntireTree();
-		}
-		else if(action.type === 'UPDATE_DISLIKE'){
-			let postsData = this._state.PostsPage.postsData;
-			let k = postsData.length - action.id; // post position in array 
-			if(postsData[k]){
-				postsData[k].likesCNT[1]++;
-			}
-			else console.log('Error, post doesn`t exist');
-			this.rerenderEntireTree();
-		}
-		else if (action.type === UPDATE_MESSAGE_INPUT) {
-			this._state.MessagesPage.inputvalue[0] = action.text;
-			this.rerenderEntireTree();
-		}
-		else if (action.type === SEND_MESSAGE) {
-			if(action.id != 0){
-				this._state.MessagesPage.dialogsData[action.id-1].messages.push({
-					text: this._state.MessagesPage.inputvalue[0],
-					id: this._state.MessagesPage.dialogsData[action.id-1].messages.length + 1
-				})
-			}
-			this.rerenderEntireTree();
-		}
+		this._state.PostsPage = PostsPage_reducer(this._state.PostsPage, action);
+		this._state.MessagesPage = MessagesPage_reducer(this._state.MessagesPage, action);
+		this._state.FriendsPage = FriendsPage_reducer(this._state.FriendsPage, action);
+		this.rerenderEntireTree();
 	}
 }
 
 
-export const SendMessageActionCreator = (id) =>({type: SEND_MESSAGE, id: id});
-export const UpdateMessageInputActionCreator = (text) =>({type: UPDATE_MESSAGE_INPUT, text: text});
-export const UpdatePostInputActionCreator = (text) =>({type: UPDATE_POST_INPUT, text: text});
-export const AddPostActionCreator = () =>({type: ADD_POST});
-export const UpdateLikeActionCreator = (id) => ({type: UPDATE_LIKE, id: id});
-export const UpdateDisLikeActionCreator = (id) =>({type: UPDATE_DISLIKE, id: id});
 
 
 window.storage = storage;
