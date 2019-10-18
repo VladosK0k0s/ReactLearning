@@ -1,11 +1,17 @@
 const UPDATE_SLIDER = 'UPDATE_SLIDER';
 const SUBMIT_CLICK = 'SUBMIT_CLICK';
 
+let initialState = {
+	slidervalue: (()=>{
+		let d = new Date();
+	return Math.floor(d.getHours()/3);
+	})()
+}
 
-const MessagePage_reducer = (state, action) => {
+const MessagePage_reducer = (state = initialState, action) => {
 	switch(action.type){
 		case UPDATE_SLIDER:{
-			state.slidervalue = action.value;
+			state.slidervalue = +action.value;
 			return state;
 		}
 		case SUBMIT_CLICK:{

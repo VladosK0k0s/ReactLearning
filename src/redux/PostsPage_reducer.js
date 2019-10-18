@@ -4,7 +4,19 @@ const UPDATE_DISLIKE = 'UPDATE_DISLIKE';
 const UPDATE_LIKE = 'UPDATE_LIKE';
 
 
-const PostsPage_reducer = (state, action)=>{
+
+let initialState = {
+	postsData: [
+		{key: 3, id: 3, likesCNT: [0,0], message: "Hi?", ImgURL: `https://amp.businessinsider.com/images/5cacd56cc6cc5056ef29b195-750-563.jpg`},
+		{key: 2, id: 2, likesCNT: [0,0], message: "kkkkkk", ImgURL: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5Ed8K8CHYqSdZtT4EIjyFFcZqqqfTuABa7EZgEun6b5uhPese`},
+		{key: 1, id: 1, likesCNT: [0,0], message: "Byyyyyeeeee", ImgURL: `https://i.ytimg.com/vi/_c8xXjc4jPw/hqdefault.jpg`}
+	],
+	inputvalue: ['']
+};
+
+
+
+const PostsPage_reducer = (state = initialState, action)=>{
 	switch(action.type){
 		case ADD_POST:{
 			let postsData = state.postsData;

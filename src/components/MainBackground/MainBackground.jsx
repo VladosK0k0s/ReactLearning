@@ -5,7 +5,6 @@ let url = null;
 
 class MainBackground extends React.Component{
 	render(){
-		console.log(this.props.storage.getState().SettingsPage.slidervalue);
 		switch (+this.props.storage.getState().SettingsPage.slidervalue) {
 	  	case 0:
 		  	url ='https://i.imgur.com/laSSeYN.png';

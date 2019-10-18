@@ -62,11 +62,11 @@ let storage = {
 		let d = new Date();
 		this._state.SettingsPage.slidervalue = Math.floor(d.getHours()/3);
 	},
-	rerenderEntireTree(){
+	_callSubscriber(){
 		console.log('State changed!');
 	},
 	subscribe(observer){
-		this.rerenderEntireTree = observer;
+		this._callSubscriber = observer;
 	},
 	dispatch(action){   //  {type: 'ADD-POST'}
 		this._state.PostsPage = PostsPage_reducer(this._state.PostsPage, action);
