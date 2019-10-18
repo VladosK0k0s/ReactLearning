@@ -37,6 +37,7 @@ const PostsPage_reducer = (state, action)=>{
 				postsData[k].likesCNT[1]++;
 			}
 			else console.log('Error, post doesn`t exist');
+			return state;
 		}
 		default:
 			return state;

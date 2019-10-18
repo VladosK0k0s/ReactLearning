@@ -1,6 +1,7 @@
 import MessagesPage_reducer from './MessagesPage_reducer.js';
 import PostsPage_reducer from './PostsPage_reducer.js';
 import FriendsPage_reducer from './FriendsPage_reducer.js';
+import SettingsPage_reducer from './SettingsPage_reducer.js'
 
 let storage = {
 	_state: {
@@ -46,6 +47,9 @@ let storage = {
 				{id: 2, name: 'Vladik3'},
 				{id: 1, name: 'Vladik4'}
 			]
+	  	},
+	  	SettingsPage:{
+	  		slidervalue: 2
 	  	}
 	},
 	getState(){
@@ -61,6 +65,7 @@ let storage = {
 		this._state.PostsPage = PostsPage_reducer(this._state.PostsPage, action);
 		this._state.MessagesPage = MessagesPage_reducer(this._state.MessagesPage, action);
 		this._state.FriendsPage = FriendsPage_reducer(this._state.FriendsPage, action);
+		this._state.SettingsPage = SettingsPage_reducer(this._state.SettingsPage, action);
 		this.rerenderEntireTree();
 	}
 }
