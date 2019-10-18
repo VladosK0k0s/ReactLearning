@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ReactLearning/static/css/main.472d3243.chunk.css",
+    "main.js": "/ReactLearning/static/js/main.a990d635.chunk.js",
+    "main.js.map": "/ReactLearning/static/js/main.a990d635.chunk.js.map",
+    "runtime~main.js": "/ReactLearning/static/js/runtime~main.dc71acf1.js",
+    "runtime~main.js.map": "/ReactLearning/static/js/runtime~main.dc71acf1.js.map",
+    "static/js/2.328a7d6e.chunk.js": "/ReactLearning/static/js/2.328a7d6e.chunk.js",
+    "static/js/2.328a7d6e.chunk.js.map": "/ReactLearning/static/js/2.328a7d6e.chunk.js.map",
+    "index.html": "/ReactLearning/index.html",
+    "precache-manifest.7825fbb1efc2eb7c4d8b050b6159c55f.js": "/ReactLearning/precache-manifest.7825fbb1efc2eb7c4d8b050b6159c55f.js",
+    "service-worker.js": "/ReactLearning/service-worker.js",
+    "static/css/main.472d3243.chunk.css.map": "/ReactLearning/static/css/main.472d3243.chunk.css.map",
+    "static/media/Friends.module.css": "/ReactLearning/static/media/friendsImg.3f18d311.jpg"
+  }
+}
