@@ -1,47 +1,27 @@
-
 import React from 'react';
 import classes from './Post.module.css';
+import {PostUpdateLikeActionCreator, PostUpdateDisLikeActionCreator} from './../../../../redux/PostsPage_reducer.js'
 
 
 class Post extends React.Component {
-	constructor(props) {
-	  super(props);
-	  this.state = {
-	  	likecnt: this.props.CNT[0],
-		dislikecnt: this.props.CNT[1],
-		message: this.props.message,
-		avatar: this.props.ImgURL,
-		HandleChange: this.props.HandleChange
-	  };
-	}
-	ChangeLike() {	
-		this.props.CNT[0]++;
-		this.setState({likecnt:this.props.CNT[0]});
-		this.state.HandleChange();
-	}
-	ChangeDisLike() {
-		this.props.CNT[1]++;
-		this.setState({dislikecnt:this.props.CNT[1]});
-		this.state.HandleChange();		
-	}
 	Show (arg) {
 		return !arg ? '' : arg;
 	}
      render(){
 		return<div className={classes.item} >
-				<img src={`${this.state.avatar}`} alt="userimg"/>
-				{this.state.message}
+				<img className={classes.userimg} src={`${this.props.ImgURL}`} alt="userimg"/>
+				{this.props.message}
 				<div className={classes.likes} >
 					<div>
-						<button className={classes.like} onClick={this.ChangeLike.bind(this)}>
+						<button className={classes.like} onClick={()=>this.props.dispatch(PostUpdateLikeActionCreator(this.props.id))}>
 							<img src="https://img.icons8.com/ios/50/000000/hearts-filled.png" alt="like"></img>
-							<div>{this.Show(this.state.likecnt)}</div> 
+							<div>{this.Show(this.props.likesCNT[0])}</div> 
 						</button>
 					</div>
 					<div>
-						<button className={classes.dislike} onClick={this.ChangeDisLike.bind(this)}>
+						<button className={classes.dislike} onClick={()=>this.props.dispatch(PostUpdateDisLikeActionCreator(this.props.id))}>
 							<img src="https://img.icons8.com/material-rounded/50/000000/hearts.png" alt="dislike"></img>
-							<div>{this.Show(this.state.dislikecnt)}</div> 
+							<div>{this.Show(this.props.likesCNT[1])}</div> 
 						</button>
 					</div>
 				</div>

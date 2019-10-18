@@ -1,8 +1,18 @@
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import state from './redux/state';
-import {HandleChange} from './redux/state';
-import {rerenderEntireTree} from './render.js'
+import storage from './redux/redux_store';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
 
 serviceWorker.unregister();
-rerenderEntireTree(state, HandleChange);
+let rerenderEntireTree = () =>{
+	ReactDOM.render(<App storage={storage} />,
+	document.getElementById('root'));
+	console.log('rerender');
+}
+
+rerenderEntireTree();
+
+storage.subscribe(rerenderEntireTree);

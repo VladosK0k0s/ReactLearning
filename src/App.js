@@ -8,29 +8,29 @@ import Friends from './components/Content/Friends/Friends.jsx'
 import History from './components/Content/History/History.jsx'
 import Settings from './components/Content/Settings/Settings.jsx'
 import {Route,  BrowserRouter} from 'react-router-dom'
+import MainBackground from './components/MainBackground/MainBackground.jsx'
+
 
 
 
 
 class App extends React.Component{
-	constructor(props) {
-	  super(props);
-	  this.state = {};
-	}
 	render(){
   		return (  
 		    <div className='App-wrapper'>
-		        <BrowserRouter> 
+		    	<MainBackground storage = {this.props.storage}/>
+		        <BrowserRouter>
 			        <Header/>
 			        <MainBar/>  
 				    <div className='App-wrapper-MainContent content'>
-						<Route exact path = '/' render = {() => <Posts PostsPage={this.props.AppState.PostsPage} HandleChange={this.props.HandleChange}/>}/>
-			            <Route path = '/messages' render = {() => <Messages MessagesPage={this.props.AppState.MessagesPage}/>}/>
-			           	<Route path = '/myposts' render = {() => <Posts PostsPage={this.props.AppState.PostsPage} HandleChange={this.props.HandleChange}/>}/>	
-			           	<Route path = '/friends' render = {() => <Friends FriendsPage = {this.props.AppState.FriendsPage}/>}/>
-			           	<Route path = '/settings' render = {() => <Settings/>}/>
-			           	<Route path = '/history' render = {() => <History/>}/>	
+						<Route exact path = '/' render = {() => <Posts storage = {this.props.storage}/>}/>
+			            <Route path = '/messages' render = {() => <Messages storage = {this.props.storage}/>}/>
+			           	<Route path = '/myposts' render = {() => <Posts storage = {this.props.storage}/>}/>	
+			           	<Route path = '/friends' render = {() => <Friends storage = {this.props.storage}/>}/>
+			           	<Route path = '/settings' render = {() => <Settings storage = {this.props.storage}/>}/>
+			           	<Route path = '/history' render = {() => <History storage = {this.props.storage}/>}/>
 					</div>
+					
 		      	</BrowserRouter> 
 		    </div>
   		);

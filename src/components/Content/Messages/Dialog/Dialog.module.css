@@ -1,0 +1,21 @@
+.dialog{
+	color: pink;
+	display: flex;
+	justify-content: center;	
+}
+.dialoglink{
+	padding: 10px;
+	text-decoration: none;
+	transition: .3s;
+	border-radius: 20px;
+}
+.dialoglink:hover{
+	background-color: rgba(255,255,255,.7);
+	transform: scale(1.5);
+}
+.dialoglink:active{
+	background-color: rgba(0, 255, 68,.7);
+	transform: scale(1.5);
+}
+
+
