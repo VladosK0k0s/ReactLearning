@@ -38,7 +38,7 @@ class MainBackground extends React.Component{
 		return (
 			<Helmet>
 			    <style type="text/css">{`
-			    	body { background-image: url(${url}); }`}
+			    	body { background-image: url(${url}); transition: 1s }`}
 			    </style>
 			</Helmet>
 		)

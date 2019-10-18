@@ -49,11 +49,18 @@ let storage = {
 			]
 	  	},
 	  	SettingsPage:{
-	  		slidervalue: 2
+	  		slidervalue: (()=>{
+	  			let d = new Date();
+				return Math.floor(d.getHours()/3);
+	  		})()
 	  	}
 	},
 	getState(){
 		return this._state;
+	},
+	makeSliderValue(){
+		let d = new Date();
+		this._state.SettingsPage.slidervalue = Math.floor(d.getHours()/3);
 	},
 	rerenderEntireTree(){
 		console.log('State changed!');
